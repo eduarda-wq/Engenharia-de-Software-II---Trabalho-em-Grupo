@@ -23,6 +23,9 @@ while(true){
         case 1:
             acelerar(carro);
             break;
+
+        case 2:
+            frear(carro);
     
         default:
             break;
@@ -36,6 +39,18 @@ function acelerar(veiculo: Veiculo): void{
     veiculo.velocidade += veiculo.potencia*0.1;
     console.log(veiculo.velocidade);
 }}
+
+function frear(veiculo: Veiculo): void {
+    if (veiculo.velocidade > 0) {
+        veiculo.velocidade -= veiculo.potencia * 0.05;
+        if (veiculo.velocidade < 0) {
+            veiculo.velocidade = 0;
+        }
+        console.log(`Freando: ${veiculo.velocidade.toFixed(2)} km/h`);
+    } else {
+        console.log('O veículo já está parado.');
+    }
+}
 
 function criaVeiculo(): Veiculo{
     const veiculo: Veiculo = new Veiculo();
